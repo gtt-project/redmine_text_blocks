@@ -4,23 +4,7 @@
 
 <h2><%= l :label_text_block_plural %></h2>
 
-<% if @text_blocks.any? %>
-<table class="list">
-  <thead>
-    <tr>
-      <th><%= l :label_text_block_name %></th>
-      <th><%= l :label_text_block_text %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render collection: @text_blocks, partial: 'text_block' %>
-  </tbody>
-</table>
-
-<% else %>
-<p class="nodata"><%= l :label_no_data %></p>
-<% end %>
+<%= render partial: 'list', locals: { text_blocks: @text_blocks } %>
 
 <% html_title l :label_text_block_plural -%>
 

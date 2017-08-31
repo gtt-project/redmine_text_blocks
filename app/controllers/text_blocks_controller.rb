@@ -1,9 +1,15 @@
 class TextBlocksController < ApplicationController
+  layout ->{ @project ? 'base' : 'admin' }
+
+  self.main_menu = false
 
   before_action :find_project_by_project_id
 
   before_action :require_admin, if: ->{ @project.nil? }
   before_action :authorize,     if: ->{ @project.present? }
+
+  menu_item :settings, only: [:new, :create, :edit, :update, :destroy]
+  helper_method :index_path
 
   def index
     @text_blocks = text_block_scope
@@ -21,11 +27,7 @@ class TextBlocksController < ApplicationController
     r = RedmineTextBlocks::SaveTextBlock.(text_block_params,
                                           project: @project)
     if r.text_block_saved?
-      if params[:continue]
-        redirect_to new_path
-      else
-        redirect_to index_path
-      end
+      redirect_to params[:continue] ? new_path : index_path
     else
       @text_block = r.text_block
       render 'new'
@@ -54,8 +56,9 @@ class TextBlocksController < ApplicationController
   def new_path
     @project ? new_project_text_block_path(@project) : new_text_block_path
   end
+
   def index_path
-    @project ? project_text_blocks_path(@project) : text_blocks_path
+    @project ? settings_project_path(@project, tab: 'text_blocks') : text_blocks_path
   end
 
   def text_block_params
@@ -73,11 +76,7 @@ class TextBlocksController < ApplicationController
   end
 
   def text_block_scope
-    text_blocks = TextBlock.order(name: :asc)
-    if @project
-      text_blocks = text_blocks.where(project_id: @project.id)
-    end
-    text_blocks
+    TextBlock.order(name: :asc).where(project_id: @project&.id)
   end
 
 end
