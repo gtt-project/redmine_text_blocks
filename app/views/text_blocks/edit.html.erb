@@ -1,0 +1,11 @@
+<%= title [l(:label_text_block_plural), text_blocks_path], @text_block.name %>
+
+<%= labelled_form_for @text_block, url: text_block_path(@text_block), method: :patch do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <p>
+    <%= submit_tag l :button_save %>
+  </p>
+<% end %>
+
+
+
