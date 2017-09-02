@@ -4,7 +4,6 @@ Rails.configuration.to_prepare do
   RedmineTextBlocks.setup
 end
 
-
 Redmine::Plugin.register :redmine_text_blocks do
   name 'Redmine Text Blocks Plugin'
   author 'Jens Krämer, Georepublic'
@@ -28,7 +27,12 @@ Redmine::Plugin.register :redmine_text_blocks do
 
   menu :admin_menu, :text_blocks,
     { controller: 'text_blocks', action: 'index' },
-    caption: :label_text_block_plural
+    caption: :label_text_block_plural, :html => {:class => 'icon'}
 
 end
 
+class TextBlocksListener < Redmine::Hook::ViewListener
+  render_on :view_layouts_base_html_head, inline: <<-END
+      <%= stylesheet_link_tag 'text_blocks', :plugin => 'redmine_text_blocks' %>
+    END
+end
