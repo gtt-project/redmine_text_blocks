@@ -1,0 +1,6 @@
+<p>
+  <%= link_to l(:label_text_block_new), new_project_text_block_path(@project), class: 'icon icon-add' %>
+</p>
+
+<%= render partial: 'text_blocks/list', locals: { text_blocks: TextBlock.where(project_id: @project.id) } %>
+

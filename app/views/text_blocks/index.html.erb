@@ -1,0 +1,10 @@
+<div class="contextual">
+<%= link_to l(:label_text_block_new), new_text_block_path, class: 'icon icon-add' %>
+</div>
+
+<h2><%= l :label_text_block_plural %></h2>
+
+<%= render partial: 'list', locals: { text_blocks: @text_blocks } %>
+
+<% html_title l :label_text_block_plural -%>
+
