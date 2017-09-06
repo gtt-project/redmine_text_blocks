@@ -1,5 +1,5 @@
 <% if text_blocks.any? %>
-  <table class="list">
+  <table class="list textblocks">
     <thead>
       <tr>
         <th><%= l :label_text_block_name %></th>
@@ -15,3 +15,18 @@
   <p class="nodata"><%= l :label_no_data %></p>
 <% end %>
 
+<%= content_for :header_tags do %>
+  <%= javascript_include_tag 'jquery.dotdotdot', plugin: 'redmine_text_blocks' %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $("table.list.textblocks tbody td.text div").dotdotdot({
+        watch: 'window',
+      });
+    });
+  <% end %>
+  <style type="text/css">
+    table.list.textblocks tbody td { vertical-align: top; }
+    table.list.textblocks tbody td.text { text-align: left; }
+    table.list.textblocks tbody td.text div { height: 3.8em; }
+  </style>
+<% end %>
