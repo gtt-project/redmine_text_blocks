@@ -1,5 +1,5 @@
 <tr>
   <td><%= link_to text_block.name, (text_block.project ? edit_project_text_block_path(text_block.project, text_block) : edit_text_block_path(text_block)) %></td>
-  <td><%= text_block.text %></td>
+  <td><%= textilizable text_block.text %></td>
   <td><%= delete_link(text_block.project ? project_text_block_path(text_block.project, text_block) : text_block_path(text_block)) %>
 </tr>
