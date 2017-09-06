@@ -22,6 +22,14 @@
       $("table.list.textblocks tbody td.text div").dotdotdot({
         watch: 'window',
       });
+
+      // make sure text is shortened when it was initially hidden and just
+      // becomes visible due to Redmine's tabbing in project settings:
+      var origShowTab = window.showTab;
+      window.showTab = function(name, url){
+        origShowTab(name, url);
+        $("table.list.textblocks tbody td.text div").trigger('update.dot');
+      }
     });
   <% end %>
   <style type="text/css">
