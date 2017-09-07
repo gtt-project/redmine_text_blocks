@@ -18,7 +18,7 @@ Redmine::Plugin.register :redmine_text_blocks do
 
   project_module :text_blocks do
 
-    permission :view_text_blocks, {}, require: :member, read: :true
+    permission :view_text_blocks, {}, require: :member, read: true
     permission :manage_text_blocks, {
       text_blocks: %i( new edit update create destroy ),
       projects: %i( manage_text_blocks )
@@ -31,8 +31,3 @@ Redmine::Plugin.register :redmine_text_blocks do
 
 end
 
-class TextBlocksListener < Redmine::Hook::ViewListener
-  render_on :view_layouts_base_html_head, inline: <<-END
-      <%= stylesheet_link_tag 'text_blocks', :plugin => 'redmine_text_blocks' %>
-    END
-end
