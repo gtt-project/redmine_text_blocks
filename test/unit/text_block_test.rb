@@ -54,5 +54,12 @@ class TextBlockTest < ActiveSupport::TestCase
       assert_equal project, r.text_block.project
     end
   end
+
+  test 'deletion of project should delete textblocks' do
+    RedmineTextBlocks::SaveTextBlock.({name: 'test'}, project: @project)
+    assert_difference 'TextBlock.count', -1 do
+      @project.destroy
+    end
+  end
 end
 
