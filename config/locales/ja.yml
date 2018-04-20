@@ -1,13 +1,10 @@
-en:
-
+ja:
   field_text_block_text: テンプレート
-
   label_select_text_block: "テンプレートを選択..."
   label_text_block_name: タイトル
   label_text_block_text: テンプレート
   label_text_block_plural: テンプレート
   label_text_block_new: 新しいテンプレート
-
   model:
     text_block:
       name_uniqueness: その名前のテンプレートはすでに存在します。
