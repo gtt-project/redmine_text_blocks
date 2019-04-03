@@ -13,7 +13,7 @@ var TextBlocks = {
     if(value == '') return;
 
     console.log(value);
-    var fieldId = $('#textblock-select').parent().next('div.jstEditor').find('textarea').attr('id');
+    var fieldId = $('#textblock-select').parents().next('div.jstEditor').find('textarea').attr('id');
 
     var field = document.getElementById(fieldId);
     var field_ = $(field);
