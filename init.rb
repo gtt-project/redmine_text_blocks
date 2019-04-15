@@ -29,6 +29,6 @@ Redmine::Plugin.register :redmine_text_blocks do
     { controller: 'text_blocks', action: 'index' },
     caption: :label_text_block_plural, :html => {:class => 'icon'}
 
-  settings default: {}, partial: 'settings/redmine_text_blocks'
+  settings default: {"textblock_config" => {}}, partial: 'settings/redmine_text_blocks'
 end
 
