@@ -6,7 +6,7 @@ module TextBlocksHelper
     end
     if issue
       status_id = issue.status_id.to_s
-      txtblock_settings = Setting.plugin_redmine_text_blocks["textblock_config"][status_id]
+      txtblock_settings = Setting.plugin_redmine_text_blocks["textblock_config"][status_id] if Setting.plugin_redmine_text_blocks["textblock_config"]
       if txtblock_settings
         tags += TextBlock.where(project_id: [nil, @project.id]).to_a.map{|tb|
           content_tag :option, value: tb.text do
