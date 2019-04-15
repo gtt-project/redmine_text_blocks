@@ -1,0 +1,13 @@
+<h3><%= l(:label_text_block_settings) %></h3>
+
+<% IssueStatus.all.each do |t| %>
+  <p>
+    <%= content_tag :label, t.name %>
+    <%= select_tag "settings[textblock_config][#{t.id}]",
+      options_from_collection_for_select(TextBlock.all,
+                                         "id",
+                                         "name", @settings["textblock_config"]["#{t.id}"]),
+       multiple: true %>
+  </p>
+<% end %>
+
