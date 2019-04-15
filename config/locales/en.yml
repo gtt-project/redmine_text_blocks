@@ -5,6 +5,7 @@ en:
   label_text_block_text: Text
   label_text_block_plural: Text blocks
   label_text_block_new: New text block
+  label_text_block_settings: Text Block configurations
   model:
     text_block:
       name_uniqueness: A text block with that name already exists.
