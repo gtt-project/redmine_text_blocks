@@ -4,16 +4,14 @@ module TextBlocksHelper
     tags << content_tag(:option, value: '') do
       t('label_select_text_block')
     end
-    if issue
-      status_id = issue.status_id.to_s
-      txtblock_settings = Setting.plugin_redmine_text_blocks["textblock_config"][status_id] if Setting.plugin_redmine_text_blocks["textblock_config"]
-      if txtblock_settings
-        tags += TextBlock.where(project_id: [nil, @project.id]).to_a.map{|tb|
-          content_tag :option, value: tb.text do
-            tb.name
-          end if txtblock_settings.include?(tb.id.to_s)
-        }
-      end
+    status_textblocks = IssueStatus.find(issue.status_id).text_blocks
+    if issue and status_textblocks
+      status_id = issue.status_id
+      tags += status_textblocks.map{|tb|
+        content_tag :option, value: tb.text do
+          tb.name
+        end
+      }
     else
       tags += TextBlock.where(project_id: [nil, @project.id]).to_a.map{|tb|
         content_tag :option, value: tb.text do
