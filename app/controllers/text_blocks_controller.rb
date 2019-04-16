@@ -4,6 +4,7 @@ class TextBlocksController < ApplicationController
   self.main_menu = false
 
   before_action :find_project_by_project_id
+  before_action :get_issue_statuses, except: [:index, :destroy]
 
   before_action :require_admin, if: ->{ @project.nil? }
   before_action :authorize,     if: ->{ @project.present? }
@@ -62,7 +63,7 @@ class TextBlocksController < ApplicationController
   end
 
   def text_block_params
-    params[:text_block].permit :name, :text
+    params[:text_block].permit :name, :text, :issue_status_ids => []
   end
 
   def find_text_block
@@ -79,4 +80,7 @@ class TextBlocksController < ApplicationController
     TextBlock.order(name: :asc).where(project_id: @project&.id)
   end
 
+  def get_issue_statuses
+    @issue_statuses = IssueStatus.all
+  end
 end
