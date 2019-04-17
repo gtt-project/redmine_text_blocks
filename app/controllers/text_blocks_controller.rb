@@ -81,6 +81,6 @@ class TextBlocksController < ApplicationController
   end
 
   def get_issue_statuses
-    @issue_statuses = IssueStatus.all
+    @issue_statuses = IssueStatus.all.sorted
   end
 end
