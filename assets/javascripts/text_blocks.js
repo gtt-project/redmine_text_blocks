@@ -38,3 +38,16 @@ var TextBlocks = {
 
 $(document).ready(TextBlocks.init);
 $(document).on("change", "#textblock-select", TextBlocks.insert);
+$(document).on("change", "#issue_status_id", function(){
+  $("#textblock-select option:gt(0)").remove();
+  $.ajax({
+    url: "/text_blocks_by_status/"+$(this).val(),
+    method: "GET",
+    success: function(data){
+      data.forEach(function(tb){
+        $("#textblock-select").append($("<option></option>")
+        .attr("value", tb.text).text(tb.name));
+      });
+    }
+  });
+})
