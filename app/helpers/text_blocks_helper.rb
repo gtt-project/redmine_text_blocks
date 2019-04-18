@@ -4,9 +4,8 @@ module TextBlocksHelper
     tags << content_tag(:option, value: '') do
       t('label_select_text_block')
     end
-    status_textblocks = IssueStatus.find(issue.status_id).text_blocks
-    if issue and status_textblocks
-      status_id = issue.status_id
+    status_textblocks = IssueStatus.find(issue.status_id).text_blocks if issue
+    if !status_textblocks.blank?
       tags += status_textblocks.map{|tb|
         content_tag :option, value: tb.text do
           tb.name
