@@ -6,7 +6,7 @@ class TextBlocksController < ApplicationController
   before_action :find_project_by_project_id
   before_action :get_issue_statuses, except: [:index, :destroy]
 
-  before_action :require_admin, if: ->{ @project.nil? }
+  before_action :require_admin, if: ->{ @project.nil? } , except: :blocks_by_status
   before_action :authorize,     if: ->{ @project.present? }
 
   menu_item :settings, only: [:new, :create, :edit, :update, :destroy]
@@ -51,6 +51,12 @@ class TextBlocksController < ApplicationController
     redirect_to index_path
   end
 
+  def blocks_by_status
+    @txtblocks = get_blocks_by_status(params[:status_id])
+    respond_to do |format|
+      format.json { render json: @txtblocks.to_json }
+    end
+  end
 
   private
 
@@ -82,5 +88,9 @@ class TextBlocksController < ApplicationController
 
   def get_issue_statuses
     @issue_statuses = IssueStatus.all.sorted
+  end
+
+  def get_blocks_by_status(status_id)
+    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks
   end
 end
