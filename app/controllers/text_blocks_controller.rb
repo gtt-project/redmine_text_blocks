@@ -7,7 +7,7 @@ class TextBlocksController < ApplicationController
   before_action :get_issue_statuses, except: [:index, :destroy]
 
   before_action :require_admin, if: ->{ @project.nil? } , except: :blocks_by_status
-  before_action :authorize,     if: ->{ @project.present? }
+  before_action :authorize,     if: ->{ @project.present? }, except: :blocks_by_status
 
   menu_item :settings, only: [:new, :create, :edit, :update, :destroy]
   helper_method :index_path
@@ -91,6 +91,6 @@ class TextBlocksController < ApplicationController
   end
 
   def get_blocks_by_status(status_id)
-    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks
+    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks.where(project_id: [nil, @project&.id])
   end
 end

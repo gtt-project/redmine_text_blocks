@@ -32,22 +32,24 @@ var TextBlocks = {
     field.selectionEnd = caretPos + value.length
 
     $(this).val('');
-  }
+  },
 
+  reload: function(e){
+    $("#textblock-select option:gt(0)").remove();
+    $.ajax({
+      url: "/text_blocks_by_status/"+$("#issue_status_id").val()+"/"+$("#issue_project_id").val(),
+      method: "GET",
+      success: function(data){
+        data.forEach(function(tb){
+          $("#textblock-select").append($("<option></option>")
+          .attr("value", tb.text).text(tb.name));
+        });
+      }
+    });
+  }
 }
 
 $(document).ready(TextBlocks.init);
 $(document).on("change", "#textblock-select", TextBlocks.insert);
-$(document).on("change", "#issue_status_id", function(){
-  $("#textblock-select option:gt(0)").remove();
-  $.ajax({
-    url: "/text_blocks_by_status/"+$(this).val(),
-    method: "GET",
-    success: function(data){
-      data.forEach(function(tb){
-        $("#textblock-select").append($("<option></option>")
-        .attr("value", tb.text).text(tb.name));
-      });
-    }
-  });
-})
+$(document).on("change", "#issue_status_id", TextBlocks.reload);
+$(document).on("change", "#issue_project_id", TextBlocks.reload);

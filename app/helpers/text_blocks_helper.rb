@@ -6,7 +6,7 @@ module TextBlocksHelper
     end
     status_textblocks = IssueStatus.find(issue.status_id).text_blocks if issue
     if !status_textblocks.blank?
-      tags += status_textblocks.map{|tb|
+      tags += status_textblocks.where(project_id: [nil, @project.id]).map{|tb|
         content_tag :option, value: tb.text do
           tb.name
         end
