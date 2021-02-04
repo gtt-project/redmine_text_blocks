@@ -9,6 +9,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        redmine: [v3.4,v4.0,v4.1]
+        ruby: [v2.6]
+        database: [postgresql]
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -17,6 +22,6 @@ jobs:
       uses: two-pack/redmine-plugin-test-action@v2
       with:
         plugin_name: redmine_text_blocks
-        redmine_version: v4.1
-        ruby_version: v2.6
-        database: postgresql
+        redmine_version: ${{ matrix.redmine }}
+        ruby_version: ${{ matrix.ruby }}
+        database: ${{ matrix.database }}
