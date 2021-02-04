@@ -28,6 +28,5 @@ Redmine::Plugin.register :redmine_text_blocks do
   menu :admin_menu, :text_blocks,
     { controller: 'text_blocks', action: 'index' },
     caption: :label_text_block_plural, :html => {:class => 'icon'}
-
 end
 
