@@ -42,4 +42,4 @@ More information on installing Redmine plugins can be found here: http://www.red
 
 ## LICENSE
 
-GPL v3.0
+This program is free software. See [LICENSE](LICENSE) for more information.
