@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        redmine: [v3.4,v4.0,v4.1]
+        redmine: [v4.0,v4.1]
         ruby: [v2.6]
         database: [postgresql]
     steps:
