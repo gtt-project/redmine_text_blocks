@@ -4,7 +4,7 @@ This plugin adds configurable text blocks for replying to issues.
 
 ## Project health
 
-![CI #develop](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20Redmine/badge.svg?branch=develop)
+![CI #develop](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20Redmine/badge.svg)
 
 ## Requirements
 
