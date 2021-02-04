@@ -2,14 +2,17 @@
 
 This plugin adds configurable text blocks for replying to issues.
 
+## Project health
+
+![CI #develop](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20Redmine/badge.svg?branch=develop)
 
 ## Requirements
 
- - Redmine >= 3.4.0
+- Redmine >= 3.4.0
 
 ## Installation
 
-To install Redmine text blocks plugin, download or clone this repository in your Redmine installation plugins directory! 
+To install Redmine text blocks plugin, download or clone this repository in your Redmine installation plugins directory!
 
 `git clone https://hub.georepublic.net/gtt/redmine_text_blocks.git`
 
@@ -31,7 +34,7 @@ More information on installing Redmine plugins can be found here: http://www.red
 
   - 1.0.2 Fixes localization
   - 1.0.1 Bugfix
-  
+
 
 ## Authors
 
