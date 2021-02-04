@@ -1,0 +1,22 @@
+name: Test with Redmine
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Redmine plugin test
+      uses: two-pack/redmine-plugin-test-action@v2
+      with:
+        plugin_name: redmine_text_blocks
+        redmine_version: v4.1
+        ruby_version: v2.6
+        database: postgresql
