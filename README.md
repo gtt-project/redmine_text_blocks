@@ -42,7 +42,7 @@ The GTT Project appreciates any [contributions](https://github.com/gtt-project/.
 - 1.0.2 Fixes localization
 - 1.0.1 Bugfix
 
-See [all releases](https://github.com/gtt-project/redmine_gtt/releases) with release notes.
+See [all releases](https://github.com/gtt-project/redmine_text_blocks/releases) with release notes.
 
 ## Authors
 
@@ -50,7 +50,7 @@ See [all releases](https://github.com/gtt-project/redmine_gtt/releases) with rel
   - [Daniel Kastl](https://github.com/dkastl)
   - [Thibault Mutabazi](https://github.com/eyewritecode)
   - [Ko Nagase](https://github.com/sanak)
-  - ... [and others](https://github.com/gtt-project/redmine_gtt/graphs/contributors)
+  - ... [and others](https://github.com/gtt-project/redmine_text_blocks/graphs/contributors)
 
 ## LICENSE
 
