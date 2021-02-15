@@ -39,10 +39,10 @@ The GTT Project appreciates any [contributions](https://github.com/gtt-project/.
 
 ## Version History
 
-See [all releases](https://github.com/gtt-project/redmine_gtt/releases) with release notes.
-
 - 1.0.2 Fixes localization
 - 1.0.1 Bugfix
+
+See [all releases](https://github.com/gtt-project/redmine_gtt/releases) with release notes.
 
 ## Authors
 
