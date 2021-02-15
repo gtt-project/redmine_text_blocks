@@ -13,36 +13,45 @@ This plugin adds configurable text blocks for replying to issues.
 ## Installation
 
 To install Redmine text blocks plugin, download or clone this repository in your Redmine installation plugins directory!
-
-`git clone https://hub.georepublic.net/gtt/redmine_text_blocks.git`
+```
+cd path/to/plugin/directory
+git clone https://github.com/gtt-project/redmine_text_blocks.git
+```
 
 Then run
 
-`bundle install`
+```
+bundle install
+bundle exec rake redmine:plugins:migrate
+```
 
-followed by
+After restarting Redmine, you should be able to see the Redmine GTT plugin in the Plugins page.
 
-`bundle exec rake redmine:plugins:migrate`
+More information on installing (and uninstalling) Redmine plugins can be found here: http://www.redmine.org/wiki/redmine/Plugins
 
+## How to use
 
-After restarting Redmine, you should be able to see the Redmine Resource Manager in the Plugins page.
+[Settings, screenshots, etc.]
 
-More information on installing Redmine plugins can be found here: http://www.redmine.org/wiki/redmine/Plugins
+## Contributing and Support
 
+The GTT Project appreciates any [contributions](https://github.com/gtt-project/.github/blob/main/CONTRIBUTING.md)! Feel free to contact us for [reporting problems and support](https://github.com/gtt-project/.github/blob/main/CONTRIBUTING.md).
 
 ## Version History
 
-  - 1.0.2 Fixes localization
-  - 1.0.1 Bugfix
+See [all releases](https://github.com/gtt-project/redmine_gtt/releases) with release notes.
 
+- 1.0.2 Fixes localization
+- 1.0.1 Bugfix
 
 ## Authors
 
   - [Jens Kraemer](https://github.com/jkraemer)
-
   - [Daniel Kastl](https://github.com/dkastl)
-
+  - [Thibault Mutabazi](https://github.com/eyewritecode)
+  - [Ko Nagase](https://github.com/sanak)
+  - ... [and others](https://github.com/gtt-project/redmine_gtt/graphs/contributors)
 
 ## LICENSE
 
-GPL v3.0
+This program is free software. See [LICENSE](LICENSE) for more information.
