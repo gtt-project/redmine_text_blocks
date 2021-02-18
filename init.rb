@@ -7,9 +7,10 @@ end
 Redmine::Plugin.register :redmine_text_blocks do
   name 'Redmine Text Blocks Plugin'
   author 'Jens Krämer, Georepublic'
-  author_url 'https://hub.georepublic.net/gtt/redmine_text_blocks'
+  author_url 'https://github.com/georepublic'
+  url 'https://github.com/gtt-project/redmine_text_blocks'
   description 'Adds configurable text blocks for replying to issues'
-  version '1.0.2'
+  version '1.2.0'
 
   requires_redmine version_or_higher: '3.4.0'
 
