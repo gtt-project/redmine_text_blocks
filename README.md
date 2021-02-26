@@ -6,7 +6,7 @@ This plugin adds configurable text blocks for replying to issues.
 
 ## Requirements
 
-- Redmine >= 3.4.0
+- Redmine >= 4.0.0
 
 ## Installation
 
