@@ -3,7 +3,7 @@ var TextBlocks = {
     var select = $('#textblock-select');
     var toolbar_buttons = select.parent().find('.jstElements');
     if(select.parent() != toolbar_buttons) {
-      toolbar_buttons.find('button:first').before(select);
+      toolbar_buttons.find('button:last').after(select);
     }
     select.show();
   },
