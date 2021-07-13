@@ -53,3 +53,5 @@ See [all releases](https://github.com/gtt-project/redmine_text_blocks/releases) 
 ## LICENSE
 
 This program is free software. See [LICENSE](LICENSE) for more information.
+
+DUMMY
