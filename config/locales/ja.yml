@@ -5,6 +5,9 @@ ja:
   label_text_block_text: テンプレート
   label_text_block_plural: テンプレート
   label_text_block_new: 新しいテンプレート
+  permission_view_text_blocks: "テンプレートの閲覧"
+  permission_manage_text_blocks: "テンプレートの管理"
+  project_module_text_blocks: "テンプレート"
   model:
     text_block:
       name_uniqueness: その名前のテンプレートはすでに存在します。

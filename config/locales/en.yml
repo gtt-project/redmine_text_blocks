@@ -5,6 +5,9 @@ en:
   label_text_block_text: Text
   label_text_block_plural: Text blocks
   label_text_block_new: New text block
+  permission_view_text_blocks: "View text blocks"
+  permission_manage_text_blocks: "Manage text blocks"
+  project_module_text_blocks: "Text blocks"
   model:
     text_block:
       name_uniqueness: A text block with that name already exists.
