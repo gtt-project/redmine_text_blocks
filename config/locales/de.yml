@@ -1,1 +1,12 @@
-{}
+field_text_block_text: Text
+label_select_text_block: Textbaustein auswählen...
+label_text_block_name: Name
+label_text_block_text: Text
+label_text_block_plural: Textbausteine
+label_text_block_new: Neuer Textbaustein
+permission_view_text_blocks: Textbausteine ansehen
+permission_manage_text_blocks: Textbausteine verwalten
+project_module_text_blocks: Textbausteine
+model:
+  text_block:
+    name_uniqueness: Ein Textbaustein mit diesem Namen ist bereits vorhanden.
