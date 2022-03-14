@@ -1,4 +1,5 @@
 <% if User.current.allowed_to?(:view_text_blocks, @project) %>
   <%= select_tag :text_block, text_block_options(@issue), id: 'textblock-select', style: 'display:none; border: 1px solid #e0e2e3; background: #f6f6f6; height: 24px; color: #3d454c; vertical-align: bottom; margin-left: 6px; margin-botton: 0;' %>
   <%= javascript_include_tag 'text_blocks', plugin: 'redmine_text_blocks' %>
+  <%= hidden_field_tag :text_block_project_id, @project.id %>
 <% end %>
