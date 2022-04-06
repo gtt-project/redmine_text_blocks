@@ -1,5 +1,3 @@
-require 'redmine_text_blocks/view_hooks'
-
 module RedmineTextBlocks
   def self.setup
     RedmineTextBlocks::ProjectPatch.apply

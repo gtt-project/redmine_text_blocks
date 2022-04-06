@@ -1,7 +1,13 @@
-require 'redmine'
+require File.expand_path('../lib/redmine_text_blocks/view_hooks', __FILE__)
 
-Rails.configuration.to_prepare do
-  RedmineTextBlocks.setup
+if Rails.version > '6.0' && Rails.autoloaders.zeitwerk_enabled?
+  Rails.application.config.after_initialize do
+    RedmineTextBlocks.setup
+  end
+else
+  Rails.configuration.to_prepare do
+    RedmineTextBlocks.setup
+  end
 end
 
 Redmine::Plugin.register :redmine_text_blocks do
