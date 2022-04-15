@@ -35,7 +35,6 @@ var TextBlocks = {
   },
 
   reload: function(e){
-    debugger
     var projectId = null
     if ($("#issue_project_id").size() > 0) {
       projectId = $("#issue_project_id").val()
