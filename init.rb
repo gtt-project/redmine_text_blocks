@@ -1,7 +1,14 @@
-require 'redmine'
+require File.expand_path('../lib/redmine_text_blocks/view_hooks', __FILE__)
 
-Rails.configuration.to_prepare do
-  RedmineTextBlocks.setup
+if Rails.version > '6.0' && Rails.autoloaders.zeitwerk_enabled?
+  Rails.application.config.after_initialize do
+    RedmineTextBlocks.setup
+  end
+else
+  require 'redmine_text_blocks'
+  Rails.configuration.to_prepare do
+    RedmineTextBlocks.setup
+  end
 end
 
 Redmine::Plugin.register :redmine_text_blocks do
@@ -10,7 +17,7 @@ Redmine::Plugin.register :redmine_text_blocks do
   author_url 'https://github.com/georepublic'
   url 'https://github.com/gtt-project/redmine_text_blocks'
   description 'Adds configurable text blocks for replying to issues'
-  version '1.2.0'
+  version '2.0.0'
 
   requires_redmine version_or_higher: '4.0.0'
 

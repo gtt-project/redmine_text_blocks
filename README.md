@@ -37,6 +37,8 @@ The Text Blocks Project appreciates any [contributions](https://github.com/gtt-p
 
 ## Version History
 
+- 2.0.0 Support Redmine 5.0
+- 1.2.0 Publish on GitHub
 - 1.0.2 Fixes localization
 - 1.0.1 Bugfix
 
