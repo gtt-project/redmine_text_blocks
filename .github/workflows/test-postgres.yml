@@ -1,7 +1,7 @@
 name: Test with Postgres
 
 env:
-  PLUGIN_NAME: redmine_text_blocks
+  PLUGIN_NAME: ${{ github.event.repository.name }}
 
 on:
   push:

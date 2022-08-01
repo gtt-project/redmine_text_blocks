@@ -22,13 +22,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        redmine_version: [4.2-stable] #[4.2-stable, 5.0-stable, master]
-        ruby_version: [2.7] #[2.7, 3.0, 3.1]
-        # exclude:
-        #   - redmine_version: 4.2-stable
-        #     ruby_version: 3.0
-        #   - redmine_version: 4.2-stable
-        #     ruby_version: 3.1
+        redmine_version: [4.2-stable, 5.0-stable, master]
+        ruby_version: [2.7, 3.0, 3.1]
+        exclude:
+          - redmine_version: 4.2-stable
+            ruby_version: 3.0
+          - redmine_version: 4.2-stable
+            ruby_version: 3.1
 
     steps:
       - name: Checkout Redmine
@@ -72,6 +72,16 @@ jobs:
         run: |
           bundle exec rake generate_secret_token
           bundle exec rake db:create db:migrate redmine:plugins:migrate
+
+      - name: Zeitwerk check
+        working-directory: ./redmine
+        env:
+          RAILS_ENV: test
+        run: |
+          if ! grep -q zeitwerk config/application.rb; then
+            bundle exec rake zeitwerk:check
+          fi
+        shell: bash
 
       - name: Run tests
         env:
