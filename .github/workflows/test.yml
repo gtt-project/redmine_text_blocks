@@ -70,7 +70,7 @@ jobs:
             test:
               adapter: postgresql
               database: redmine
-              host: localhost
+              host: postgres
               username: postgres
               password: postgres
               encoding: utf8
