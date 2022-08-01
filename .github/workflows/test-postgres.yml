@@ -89,6 +89,16 @@ jobs:
           bundle exec rake generate_secret_token
           bundle exec rake db:create db:migrate redmine:plugins:migrate
 
+      - name: Zeitwerk check
+        env:
+          RAILS_ENV: test
+        working-directory: redmine
+        run: |
+          if grep -q zeitwerk config/application.rb ; then
+            bundle exec rake zeitwerk:check
+          fi
+        shell: bash
+
       - name: Run tests
         env:
           RAILS_ENV: test

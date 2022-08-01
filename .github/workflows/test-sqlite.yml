@@ -74,9 +74,9 @@ jobs:
           bundle exec rake db:create db:migrate redmine:plugins:migrate
 
       - name: Zeitwerk check
-        working-directory: ./redmine
         env:
           RAILS_ENV: test
+        working-directory: redmine
         run: |
           if grep -q zeitwerk config/application.rb ; then
             bundle exec rake zeitwerk:check
