@@ -24,11 +24,11 @@ jobs:
       matrix:
         redmine_version: [4.2-stable] #[4.2-stable, 5.0-stable, master]
         ruby_version: [2.7] #[2.7, 3.0, 3.1]
-        exclude:
-          # - redmine_version: 4.2-stable
-          #   ruby_version: 3.0
-          # - redmine_version: 4.2-stable
-          #   ruby_version: 3.1
+        # exclude:
+        #   - redmine_version: 4.2-stable
+        #     ruby_version: 3.0
+        #   - redmine_version: 4.2-stable
+        #     ruby_version: 3.1
 
     steps:
       - name: Checkout Redmine
