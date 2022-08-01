@@ -13,7 +13,7 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.redmine_version }} ruby-${{ matrix.ruby_version }} postgres:${{ matrix.db_version }}
+    name: ${{ matrix.redmine_version }} ruby-${{ matrix.ruby_version }} mysql:${{ matrix.db_version }}
     runs-on: ubuntu-22.04
 
     container:
@@ -61,10 +61,10 @@ jobs:
       - name: Update package archives
         run: apt-get update --yes --quiet
 
-      # - name: Install package dependencies
-      #   run: >
-      #     apt-get install --yes --quiet
-      #     libmysqlclient-dev
+      - name: Install package dependencies
+        run: >
+          apt-get install --yes --quiet
+          libmysqlclient-dev
 
       - name: Prepare Redmine source
         working-directory: redmine
