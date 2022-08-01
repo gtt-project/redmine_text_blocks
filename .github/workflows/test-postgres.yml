@@ -13,18 +13,23 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.redmine }} postgres:${{ matrix.db_version }} ruby-${{ matrix.ruby }}
+    name: ${{ matrix.redmine }} ruby-${{ matrix.ruby }} postgres:${{ matrix.db_version }}
     runs-on: ubuntu-22.04
 
     container:
       image: ruby:${{ matrix.ruby }}-bullseye
 
     strategy:
-      matrix:
-        ruby: [2.7, 3.0, 3.1]
-        redmine: [4.2-stable, 5.0-stable, master]
-        db_version: [10, 14]
       fail-fast: false
+      matrix:
+        redmine: [4.2-stable, 5.0-stable, master]
+        ruby: [2.7, 3.0, 3.1]
+        db_version: [10, 14]
+        exclude:
+          - redmine_version: 4.2-stable
+            ruby_version: 3.0
+          - redmine_version: 4.2-stable
+            ruby_version: 3.1
 
     services:
       postgres:
