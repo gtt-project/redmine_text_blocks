@@ -1,4 +1,4 @@
-name: Test
+name: Test with Postgres
 
 env:
   PLUGIN_NAME: redmine_text_blocks
@@ -12,7 +12,7 @@ on:
       - main
 
 jobs:
-  test-with-postgres:
+  test:
     name: ${{ matrix.redmine }} postgres:${{ matrix.db_version }} ruby-${{ matrix.ruby }}
     runs-on: ubuntu-22.04
 
@@ -21,9 +21,9 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [2.7] #[2.7, 3.0, 3.1]
-        redmine: [4.2-stable] #[4.2-stable, 5.0-stable, master]
-        db_version: [10] #[10, 14]
+        ruby: [2.7, 3.0, 3.1]
+        redmine: [4.2-stable, 5.0-stable, master]
+        db_version: [10, 14]
       fail-fast: false
 
     services:
