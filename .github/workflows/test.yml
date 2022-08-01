@@ -57,12 +57,6 @@ jobs:
           apt-get install --yes --quiet
           postgresql-client
 
-      # - name: Setup Ruby
-      #   uses: ruby/setup-ruby@v1
-      #   with:
-      #     ruby-version: ${{ matrix.ruby }}
-      #     bundler-cache: true
-
       - name: Prepare Redmine source
         working-directory: redmine
         run: |
