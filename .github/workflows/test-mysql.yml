@@ -42,10 +42,6 @@ jobs:
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - name: Verify MySQL connection from host
-        run: |
-          mysql --host mysql --port 3306 -uroot -ppassword -e "SHOW DATABASES"
-
       - name: Checkout Redmine
         uses: actions/checkout@v2
         with:
@@ -64,7 +60,11 @@ jobs:
       - name: Install package dependencies
         run: >
           apt-get install --yes --quiet
-          libmysqlclient-dev
+          mysql-client
+
+      - name: Verify MySQL connection from host
+        run: |
+          mysql --host mysql --port 3306 -uroot -ppassword -e "SHOW DATABASES"
 
       - name: Prepare Redmine source
         working-directory: redmine
@@ -76,7 +76,7 @@ jobs:
               host: mysql
               username: root
               password: password
-              encoding: utf8
+              encoding: utf8mb4
           EOF
 
       - name: Install Ruby dependencies
