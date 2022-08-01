@@ -13,17 +13,17 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.redmine }} ruby-${{ matrix.ruby }} postgres:${{ matrix.db_version }}
+    name: ${{ matrix.redmine_version }} ruby-${{ matrix.ruby_version }} postgres:${{ matrix.db_version }}
     runs-on: ubuntu-22.04
 
     container:
-      image: ruby:${{ matrix.ruby }}-bullseye
+      image: ruby:${{ matrix.ruby_version }}-bullseye
 
     strategy:
       fail-fast: false
       matrix:
-        redmine: [4.2-stable, 5.0-stable, master]
-        ruby: [2.7, 3.0, 3.1]
+        redmine_version: [4.2-stable, 5.0-stable, master]
+        ruby_version: [2.7, 3.0, 3.1]
         db_version: [10, 14]
         exclude:
           - redmine_version: 4.2-stable
@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: redmine/redmine
-          ref: ${{ matrix.redmine }}
+          ref: ${{ matrix.redmine_version }}
           path: redmine
 
       - name: Checkout Plugin
