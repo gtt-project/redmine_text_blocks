@@ -50,11 +50,11 @@ jobs:
           path: redmine/plugins/${{ env.PLUGIN_NAME }}
 
       - name: Update package archives
-        run: sudo apt-get update --yes --quiet
+        run: apt-get update --yes --quiet
 
       - name: Install package dependencies
         run: >
-          sudo apt-get install --yes --quiet
+          apt-get install --yes --quiet
           postgresql-client
 
       # - name: Setup Ruby
