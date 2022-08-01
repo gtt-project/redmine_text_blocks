@@ -22,8 +22,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        redmine_version: [4.2-stable, 5.0-stable, master]
-        ruby_version: [2.7, 3.0, 3.1]
+        redmine_version: [4.2-stable] #[4.2-stable, 5.0-stable, master]
+        ruby_version: [2.7] #[2.7, 3.0, 3.1]
         db_version: [5.7, 8.0]
         exclude:
           - redmine_version: 4.2-stable
@@ -60,7 +60,7 @@ jobs:
       - name: Install package dependencies
         run: >
           apt-get install --yes --quiet
-          mysql-client
+          default-mysql-client-core
 
       - name: Verify MySQL connection from host
         run: |
