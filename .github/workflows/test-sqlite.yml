@@ -78,7 +78,7 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          if ! grep -q zeitwerk config/application.rb; then
+          if grep -q zeitwerk config/application.rb ; then
             bundle exec rake zeitwerk:check
           fi
         shell: bash
