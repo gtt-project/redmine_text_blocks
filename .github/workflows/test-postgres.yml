@@ -7,13 +7,15 @@ on:
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
 
 jobs:
   test:
-    name: ${{ matrix.redmine_version }} ruby-${{ matrix.ruby_version }} postgres:${{ matrix.db_version }}
+    name: redmine:${{ matrix.redmine_version }} ruby:${{ matrix.ruby_version }} postgres:${{ matrix.db_version }}
     runs-on: ubuntu-22.04
 
     container:

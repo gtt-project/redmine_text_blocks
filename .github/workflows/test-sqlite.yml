@@ -7,13 +7,15 @@ on:
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
+      - master
 
 jobs:
   test:
-    name: ${{ matrix.redmine_version }} ruby-${{ matrix.ruby_version }} sqlite
+    name: redmine:${{ matrix.redmine_version }} ruby:${{ matrix.ruby_version }} sqlite
     runs-on: ubuntu-22.04
 
     container:
