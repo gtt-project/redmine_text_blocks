@@ -35,7 +35,6 @@ jobs:
       mysql:
         image: mysql:${{ matrix.db_version }}
         env:
-          POSTGRES_USER: postgres
           MYSQL_ROOT_PASSWORD: password
         ports:
           - 3306:3306
