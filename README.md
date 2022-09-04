@@ -28,7 +28,7 @@ bundle exec rake redmine:plugins:migrate
 
 After restarting Redmine, you should be able to see the Redmine Text Blocks plugin in the Plugins page.
 
-More information on installing (and uninstalling) Redmine plugins can be found here: http://www.redmine.org/wiki/redmine/Plugins
+More information on installing (and uninstalling) Redmine plugins can be found in [Redmine Plugins](http://www.redmine.org/wiki/redmine/Plugins) documentation.
 
 ## How to use
 
