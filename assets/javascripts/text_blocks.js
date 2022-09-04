@@ -35,9 +35,15 @@ var TextBlocks = {
   },
 
   reload: function(e){
+    var projectId = null
+    if ($("#issue_project_id").size() > 0) {
+      projectId = $("#issue_project_id").val()
+    } else {
+      projectId = $("#text_block_project_id").val()
+    }
     $("#textblock-select option:gt(0)").remove();
     $.ajax({
-      url: "/text_blocks_by_status/"+$("#issue_status_id").val()+"/"+$("#issue_project_id").val(),
+      url: "/text_blocks_by_status/" + $("#issue_status_id").val() + "/" + projectId,
       method: "GET",
       success: function(data){
         data.forEach(function(tb){

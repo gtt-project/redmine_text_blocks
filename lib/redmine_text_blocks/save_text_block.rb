@@ -3,8 +3,8 @@ module RedmineTextBlocks
 
     Result = ImmutableStruct.new :text_block_saved?, :text_block
 
-    def self.call(*_)
-      new(*_).call
+    def self.call(*args, **kwargs)
+      new(*args, **kwargs).call
     end
 
     def initialize(params, text_block: TextBlock.new,
