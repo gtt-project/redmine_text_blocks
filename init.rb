@@ -17,7 +17,7 @@ Redmine::Plugin.register :redmine_text_blocks do
   author_url 'https://github.com/georepublic'
   url 'https://github.com/gtt-project/redmine_text_blocks'
   description 'Adds configurable text blocks for replying to issues'
-  version '2.0.0'
+  version '2.0.1'
 
   requires_redmine version_or_higher: '4.0.0'
 
@@ -37,4 +37,3 @@ Redmine::Plugin.register :redmine_text_blocks do
     { controller: 'text_blocks', action: 'index' },
     caption: :label_text_block_plural, :html => {:class => 'icon'}
 end
-
