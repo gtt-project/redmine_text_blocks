@@ -13,21 +13,22 @@ This plugin adds configurable text blocks for replying to issues.
 ## Installation
 
 To install Redmine text blocks plugin, download or clone this repository in your Redmine installation plugins directory!
-```
+
+```sh
 cd path/to/plugin/directory
 git clone https://github.com/gtt-project/redmine_text_blocks.git
 ```
 
 Then run
 
-```
+```sh
 bundle install
 bundle exec rake redmine:plugins:migrate
 ```
 
 After restarting Redmine, you should be able to see the Redmine Text Blocks plugin in the Plugins page.
 
-More information on installing (and uninstalling) Redmine plugins can be found here: http://www.redmine.org/wiki/redmine/Plugins
+More information on installing (and uninstalling) Redmine plugins can be found in [Redmine Plugins](http://www.redmine.org/wiki/redmine/Plugins) documentation.
 
 ## How to use
 
@@ -48,11 +49,11 @@ See [all releases](https://github.com/gtt-project/redmine_text_blocks/releases) 
 
 ## Authors
 
-  - [Jens Kraemer](https://github.com/jkraemer)
-  - [Daniel Kastl](https://github.com/dkastl)
-  - [Thibault Mutabazi](https://github.com/eyewritecode)
-  - [Ko Nagase](https://github.com/sanak)
-  - ... [and others](https://github.com/gtt-project/redmine_text_blocks/graphs/contributors)
+- [Jens Kraemer](https://github.com/jkraemer)
+- [Daniel Kastl](https://github.com/dkastl)
+- [Thibault Mutabazi](https://github.com/eyewritecode)
+- [Ko Nagase](https://github.com/sanak)
+- ... [and others](https://github.com/gtt-project/redmine_text_blocks/graphs/contributors)
 
 ## LICENSE
 
