@@ -40,9 +40,20 @@ class TextBlocksController < ApplicationController
     r = RedmineTextBlocks::SaveTextBlock.(text_block_params,
                                           text_block: @text_block)
     if r.text_block_saved?
-      redirect_to index_path
+      respond_to do |format|
+        format.html {
+          flash[:notice] = l(:notice_successful_update)
+          redirect_to index_path
+        }
+        format.js { head 200 }
+      end
     else
-      render 'edit'
+      respond_to do |format|
+        format.html {
+          render 'edit'
+        }
+        format.js { head 422 }
+      end
     end
   end
 
@@ -69,7 +80,7 @@ class TextBlocksController < ApplicationController
   end
 
   def text_block_params
-    params[:text_block].permit :name, :text, :issue_status_ids => []
+    params[:text_block].permit :name, :text, :issue_status_ids, :position
   end
 
   def find_text_block
@@ -83,7 +94,7 @@ class TextBlocksController < ApplicationController
   end
 
   def text_block_scope
-    TextBlock.order(name: :asc).where(project_id: @project&.id)
+    TextBlock.where(project_id: @project&.id).sorted
   end
 
   def get_issue_statuses

@@ -1,10 +1,11 @@
 class TextBlock < ActiveRecord::Base
   belongs_to :project
   has_and_belongs_to_many :issue_statuses
+  acts_as_positioned :scope => [:project_id]
 
   validates :name, presence: true
   validate :name_uniqueness
-
+  scope :sorted, ->{ order :position }
 
   private
 

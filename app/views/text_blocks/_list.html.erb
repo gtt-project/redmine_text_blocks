@@ -32,5 +32,13 @@
         $("table.list.textblocks tbody td.text div").trigger('update.dot');
       }
     });
+    $(function() {
+      $("table.textblocks tbody").positionedItems({
+        scroll: false,
+        sort: function (event, ui) {
+          ui.helper.css({'top': ui.position.top + $(window).scrollTop() + 'px'});
+        },
+      });
+    });
   <% end %>
 <% end %>
