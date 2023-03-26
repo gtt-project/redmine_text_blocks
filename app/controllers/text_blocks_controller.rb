@@ -102,6 +102,6 @@ class TextBlocksController < ApplicationController
   end
 
   def get_blocks_by_status(status_id)
-    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks.where(project_id: [nil, @project&.id])
+    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks.where(project_id: [nil, @project&.id]).sorted
   end
 end
