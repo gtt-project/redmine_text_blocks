@@ -80,7 +80,7 @@ class TextBlocksController < ApplicationController
   end
 
   def text_block_params
-    params[:text_block].permit :name, :text, :issue_status_ids, :position
+    params[:text_block].permit :name, :text, :position, :issue_status_ids => []
   end
 
   def find_text_block
@@ -102,6 +102,11 @@ class TextBlocksController < ApplicationController
   end
 
   def get_blocks_by_status(status_id)
-    IssueStatus.find(status_id).text_blocks.blank? ? text_block_scope : IssueStatus.find(status_id).text_blocks.where(project_id: [nil, @project&.id]).sorted
+    if IssueStatus.find(status_id).text_blocks.blank
+      text_block_scope
+    else
+      IssueStatus.find(status_id).text_blocks.
+        where(project_id: [nil, @project&.id]).sorted
+    end
   end
 end

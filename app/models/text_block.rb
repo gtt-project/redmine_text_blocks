@@ -8,7 +8,7 @@ class TextBlock < ActiveRecord::Base
   validates_numericality_of :position, :only_integer => true
   before_create :set_position
 
-  scope :sorted, ->{ order :position }
+  scope :sorted, ->{ order('project_id IS NOT NULL, project_id ASC, position ASC') }
 
   private
 
@@ -29,10 +29,8 @@ class TextBlock < ActiveRecord::Base
       max = self.class.where(:project_id => project_id).maximum(:position) || 0
       self.position = max + 1
     else
-      binding.pry
       max = self.class.where(:project_id => nil).maximum(:position) || 0
       self.position = max + 1
     end
   end
-
 end
