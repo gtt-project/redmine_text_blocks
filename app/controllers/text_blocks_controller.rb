@@ -102,7 +102,7 @@ class TextBlocksController < ApplicationController
   end
 
   def get_blocks_by_status(status_id)
-    if IssueStatus.find(status_id).text_blocks.blank
+    if IssueStatus.find(status_id).text_blocks.blank?
       text_block_scope
     else
       IssueStatus.find(status_id).text_blocks.
