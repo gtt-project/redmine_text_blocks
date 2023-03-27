@@ -2,7 +2,7 @@ require_relative '../test_helper'
 
 class TextBlocksProjectTest < Redmine::IntegrationTest
   fixtures :users, :email_addresses, :user_preferences,
-    :roles, :projects, :members, :member_roles
+    :roles, :projects, :members, :member_roles, :issue_statuses
 
   def setup
     super
@@ -37,7 +37,9 @@ class TextBlocksProjectTest < Redmine::IntegrationTest
     assert_response :success
 
     assert_difference 'TextBlock.count' do
-      post '/projects/ecookbook/text_blocks', params: { text_block: { name: 'test', text: 'lorem ipsum'}}
+      post '/projects/ecookbook/text_blocks', params: {
+        text_block: { name: 'test', text: 'lorem ipsum', issue_status_ids: [1, 2] }
+      }
     end
     assert_redirected_to '/projects/ecookbook/settings/text_blocks'
 
@@ -45,6 +47,7 @@ class TextBlocksProjectTest < Redmine::IntegrationTest
 
     assert b = TextBlock.find_by_name('test')
     assert_equal 'lorem ipsum', b.text
+    assert_equal [1, 2], b.issue_statuses.map(&:id).sort
     assert_equal 1, b.position
 
     get "/projects/ecookbook/text_blocks/#{b.id}/edit"
@@ -56,7 +59,9 @@ class TextBlocksProjectTest < Redmine::IntegrationTest
     assert_equal 'new', b.name
 
     assert_difference 'TextBlock.count' do
-      post '/projects/ecookbook/text_blocks', params: { text_block: { name: 'test2', text: 'lorem ipsum2'}}
+      post '/projects/ecookbook/text_blocks', params: {
+        text_block: { name: 'test2', text: 'lorem ipsum2', issue_status_ids: [1, 2] }
+      }
     end
     assert_redirected_to '/projects/ecookbook/settings/text_blocks'
 
@@ -64,6 +69,7 @@ class TextBlocksProjectTest < Redmine::IntegrationTest
 
     assert b = TextBlock.find_by_name('test2')
     assert_equal 'lorem ipsum2', b.text
+    assert_equal [1, 2], b.issue_statuses.map(&:id).sort
     assert_equal 2, b.position
 
     assert_difference 'TextBlock.count', -1 do
