@@ -8,7 +8,7 @@ class TextBlock < ActiveRecord::Base
   validates_numericality_of :position, :only_integer => true
   before_create :set_position
 
-  scope :sorted, ->{ order('project_id IS NOT NULL, project_id ASC, position ASC') }
+  scope :sorted, ->{ order(Arel.sql('project_id IS NOT NULL, project_id ASC, position ASC')) }
 
   private
 
