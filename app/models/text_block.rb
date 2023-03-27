@@ -5,6 +5,9 @@ class TextBlock < ActiveRecord::Base
 
   validates :name, presence: true
   validate :name_uniqueness
+  validates_numericality_of :position, :only_integer => true
+  before_create :set_position
+
   scope :sorted, ->{ order :position }
 
   private
@@ -18,6 +21,17 @@ class TextBlock < ActiveRecord::Base
 
     if scope.any?
       errors.add :name, I18n.t('model.text_block.name_uniqueness')
+    end
+  end
+
+  def set_position
+    if project_id.present?
+      max = self.class.where(:project_id => project_id).maximum(:position) || 0
+      self.position = max + 1
+    else
+      binding.pry
+      max = self.class.where(:project_id => nil).maximum(:position) || 0
+      self.position = max + 1
     end
   end
 
