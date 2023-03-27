@@ -33,12 +33,7 @@
       }
     });
     $(function() {
-      $("table.textblocks tbody").positionedItems({
-        scroll: false,
-        sort: function (event, ui) {
-          ui.helper.css({'top': ui.position.top + $(window).scrollTop() + 'px'});
-        },
-      });
+      $("table.textblocks tbody").positionedItems();
     });
   <% end %>
 <% end %>
