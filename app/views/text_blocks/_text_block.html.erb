@@ -6,5 +6,8 @@
       <%= textilizable s %>
     <% end %>
   </div></td>
-  <td><%= delete_link(text_block.project ? project_text_block_path(text_block.project, text_block) : text_block_path(text_block)) %></td>
+  <td class="buttons">
+    <%= reorder_handle(text_block, url: text_block.project ? project_text_block_path(text_block.project, text_block) : text_block_path(text_block)) %>
+    <%= delete_link(text_block.project ? project_text_block_path(text_block.project, text_block) : text_block_path(text_block)) %>
+  </td>
 </tr>
