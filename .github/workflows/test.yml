@@ -32,7 +32,7 @@ jobs:
         # include:
         #   - system_test: true
         #     redmine_version: master
-        #     ruby_version: '3.1'
+        #     ruby_version: '3.3'
         #     db: mysql
         exclude:
           - redmine_version: 5.0-stable
@@ -45,7 +45,7 @@ jobs:
     services:
       mysql:
         image: mysql:5.7 # min
-        # image: mysql:8.0 # latest
+        # image: mysql:9.1 # latest
         env:
           MYSQL_ROOT_PASSWORD: password
         ports:
@@ -53,7 +53,7 @@ jobs:
         options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 5
       postgres:
         image: postgres:10 # min
-        # image: postgres:15 # latest
+        # image: postgres:17 # latest
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -168,7 +168,7 @@ jobs:
       #     RAILS_ENV: test
       #     PARALLEL_WORKERS: 1
       #   working-directory: redmine
-      #   run: bundle exec rake test
+      #   run: bundle exec rails test
 
       # - name: Run core system tests
       #   if: matrix.system_test == true
@@ -176,7 +176,7 @@ jobs:
       #     RAILS_ENV: test
       #     GOOGLE_CHROME_OPTS_ARGS: "headless,disable-gpu,no-sandbox,disable-dev-shm-usage"
       #   working-directory: redmine
-      #   run: bundle exec rake test:system
+      #   run: bundle exec rails test:system
 
       - name: Run uninstall test
         env:
