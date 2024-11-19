@@ -10,8 +10,6 @@
 
 table.list.textblocks tbody td { vertical-align: top; }
 table.list.textblocks tbody td.text { text-align: left; }
-table.list.textblocks tbody td.text div { height: 3.8em; }
-
 
 /**************************************************************/
 /*                  TextBlocks template selector
@@ -25,6 +23,20 @@ select#textblock-select {
 
 div.jstElements {
   display: inline-flex;
+}
+
+table.textblocks th {
+  min-width: 100px; /* to ensure columns don't get too narrow */
+}
+
+table.textblocks .truncated {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* Number of lines to show */
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
 @media all and (max-width: 1099px) {
