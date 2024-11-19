@@ -39,6 +39,8 @@ jobs:
             ruby_version: '3.2'
           - redmine_version: 5.0-stable
             ruby_version: '3.3'
+          - redmine_version: 5.1-stable
+            ruby_version: '3.3'
 
     services:
       mysql:
