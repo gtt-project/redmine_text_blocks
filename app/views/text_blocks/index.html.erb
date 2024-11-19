@@ -1,5 +1,5 @@
 <div class="contextual">
-<%= link_to l(:label_text_block_new), new_text_block_path, class: 'icon icon-add' %>
+<%= link_to (Redmine::VERSION.to_s >= '6.0.0') ? sprite_icon('add', l(:label_text_block_new)) : l(:label_text_block_new), new_text_block_path, :class => 'icon icon-add' %>
 </div>
 
 <h2><%= l :label_text_block_plural %></h2>
