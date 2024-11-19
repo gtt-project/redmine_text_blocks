@@ -2,8 +2,7 @@
 /*                  ICONS
 /**************************************************************/
 
-#admin-menu a.text-blocks { background-image: url(../images/text_signature.png);}
-
+.icon-text-blocks:not(:has(svg)) { background-image: url(../images/text_signature.png); }
 
 /**************************************************************/
 /*                  TextBlocks table
@@ -11,25 +10,45 @@
 
 table.list.textblocks tbody td { vertical-align: top; }
 table.list.textblocks tbody td.text { text-align: left; }
-table.list.textblocks tbody td.text div { height: 3.8em; }
-
 
 /**************************************************************/
 /*                  TextBlocks template selector
 /**************************************************************/
 
+select#textblock-select {
+  display: none;
+  border: 1px solid #e0e2e3;
+  background-color: #f7f7f7;
+}
+
 div.jstElements {
   display: inline-flex;
 }
 
-@media all and (max-width: 899px) {
+table.textblocks th {
+  min-width: 100px; /* to ensure columns don't get too narrow */
+}
+
+table.textblocks .truncated {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  /* Number of lines to show */
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+@media all and (max-width: 1099px) {
   #textblock-select {
-    order: -1
+    order: -1;
+    margin-right: 6px;
   }
 }
 
-@media all and (min-width: 900px) {
+@media all and (min-width: 1100px) {
   #textblock-select {
-    order: 1
+    order: 1;
+    margin-left: 6px;
   }
 }

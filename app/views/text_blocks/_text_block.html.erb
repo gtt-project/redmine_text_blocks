@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to text_block.name, (text_block.project ? edit_project_text_block_path(text_block.project, text_block) : edit_text_block_path(text_block)) %></td>
-  <td class="text"><div><%= textilizable text_block.text %></div></td>
-  <td class="text"><div>
+  <td class="text"><div class="truncated"><%= textilizable text_block.text %></div></td>
+  <td class="text"><div class="truncated">
     <% text_block.issue_statuses.pluck(:name).map do |s| %>
       <%= textilizable s %>
     <% end %>
