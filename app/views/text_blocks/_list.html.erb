@@ -17,21 +17,7 @@
 <% end %>
 
 <%= content_for :header_tags do %>
-  <%= javascript_include_tag 'jquery.dotdotdot', plugin: 'redmine_text_blocks' %>
   <%= javascript_tag do %>
-    $(document).ready(function() {
-      $("table.list.textblocks tbody td.text div").dotdotdot({
-        watch: 'window',
-      });
-
-      // make sure text is shortened when it was initially hidden and just
-      // becomes visible due to Redmine's tabbing in project settings:
-      var origShowTab = window.showTab;
-      window.showTab = function(name, url){
-        origShowTab(name, url);
-        $("table.list.textblocks tbody td.text div").trigger('update.dot');
-      }
-    });
     $(function() {
       $("table.textblocks tbody").positionedItems();
     });

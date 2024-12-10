@@ -12,7 +12,6 @@ var TextBlocks = {
     var value = $(this).val();
     if(value == '') return;
 
-    console.log(value);
     var fieldId = $('#textblock-select').parents().next('div.jstEditor').find('textarea').attr('id');
 
     var field = document.getElementById(fieldId);
@@ -36,7 +35,7 @@ var TextBlocks = {
 
   reload: function(e){
     var projectId = null
-    if ($("#issue_project_id").size() > 0) {
+    if ($("#issue_project_id").length > 0) {
       projectId = $("#issue_project_id").val()
     } else {
       projectId = $("#text_block_project_id").val()

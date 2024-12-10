@@ -1,4 +1,4 @@
-class TextBlock < ActiveRecord::Base
+class TextBlock < (defined?(ApplicationRecord) == 'constant' ? ApplicationRecord : ActiveRecord::Base)
   belongs_to :project
   has_and_belongs_to_many :issue_statuses
   acts_as_positioned :scope => [:project_id]
