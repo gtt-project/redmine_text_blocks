@@ -1,14 +1,12 @@
 # Redmine Text Blocks Plugin
 
-[![CI](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20Postgres/badge.svg)](https://github.com/gtt-project/redmine_text_blocks/actions?query=workflow%3A%22Test%20with%20Postgres%22+branch%3Amain)
-[![CI](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20MySQL/badge.svg)](https://github.com/gtt-project/redmine_text_blocks/actions?query=workflow%3A%22Test%20with%20MySQL%22+branch%3Amain)
-[![CI](https://github.com/gtt-project/redmine_text_blocks/workflows/Test%20with%20SQLite/badge.svg)](https://github.com/gtt-project/redmine_text_blocks/actions?query=workflow%3A%22Test%20with%20SQLite%22+branch%3Amain)
+[![CI](https://github.com/gtt-project/redmine_text_blocks/workflows/Test/badge.svg)](https://github.com/gtt-project/redmine_text_blocks/actions?query=workflow%3ATest+branch%3Amain)
 
 This plugin adds configurable text blocks for replying to issues.
 
 ## Requirements
 
-- Redmine >= 5.0.0
+- Redmine >= 5.1.0
 
 ## Installation
 
